@@ -840,7 +840,7 @@ const FALLBACK_POSTS = [
 async function fetchBlogPosts() {
   if (SHEET_ID === 'YOUR_GOOGLE_SHEET_ID_HERE') return FALLBACK_POSTS;
   try {
-    const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
+    const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&headers=1`;
     const res  = await fetch(url);
     const text = await res.text();
     const json = JSON.parse(text.replace(/^[^(]+\(/, '').replace(/\);\s*$/, ''));

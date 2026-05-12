@@ -1,0 +1,11 @@
+# Administrative/Source documents
+*.docx
+*.xlsx
+*.csv
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Vercel
+.vercel

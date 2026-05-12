@@ -250,7 +250,7 @@
   async function fetchPosts() {
     if (SHEET_ID === 'YOUR_GOOGLE_SHEET_ID_HERE') return FALLBACK_POSTS;
     try {
-      const url  = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
+      const url  = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&headers=1`;
       const text = await (await fetch(url)).text();
       const json = JSON.parse(text.replace(/^[^(]+\(/, '').replace(/\);\s*$/, ''));
       const cols = json.table.cols.map(c => c.label.toLowerCase().trim());
