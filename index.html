@@ -7,245 +7,314 @@
   <meta name="description" content="Marie's Little Library is a non-profit sharing the joy of children's books, arts, and music with kids in humble communities since 2020." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     /* ── RESET & TOKENS ─────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --coral:   #F4845F;
-      --yellow:  #F9C74F;
-      --green:   #90BE6D;
-      --cream:   #FFF8F0;
-      --alt-bg:  #FEF0E0;
-      --brown:   #3D2B1F;
-      --brown-light: #7A5C47;
-      --white:   #FFFFFF;
-      --shadow:  0 4px 20px rgba(61,43,31,.12);
-      --radius:  16px;
-      --ff-head: 'Pacifico', cursive;
-      --ff-body: 'Nunito', sans-serif;
-      --transition: .25s ease;
+      --teal:        #3DBDB1;
+      --teal-dark:   #2A9D93;
+      --teal-light:  #C8EBE9;
+      --navy:        #1E3A6E;
+      --navy-light:  #2D5087;
+      --gold:        #E8A020;
+      --gold-dark:   #C8881A;
+      --white:       #FFFFFF;
+      --off-white:   #F4FBFA;
+      --text-dark:   #1E3A6E;
+      --text-mid:    #4A6B8A;
+      --shadow:      0 4px 24px rgba(30,58,110,.13);
+      --radius:      14px;
+      --ff-head:     'Pacifico', cursive;
+      --ff-body:     'Nunito', sans-serif;
+      --transition:  .25s ease;
     }
     html { scroll-behavior: smooth; font-size: 16px; }
-    body { font-family: var(--ff-body); background: var(--cream); color: var(--brown); line-height: 1.6; }
+    body { font-family: var(--ff-body); background: var(--white); color: var(--text-dark); line-height: 1.6; }
     img  { max-width: 100%; display: block; }
     a    { color: inherit; text-decoration: none; }
     ul   { list-style: none; }
 
     /* ── UTILITIES ──────────────────────────────────────────────── */
-    .container  { width: 90%; max-width: 1100px; margin: 0 auto; }
-    .section    { padding: 72px 0; }
-    .alt-bg     { background: var(--alt-bg); }
-    .section-tag { display: inline-block; font-size: .75rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--coral); background: rgba(244,132,95,.12); padding: 4px 12px; border-radius: 99px; margin-bottom: 10px; }
-    .section-title { font-family: var(--ff-head); font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.2; margin-bottom: 12px; color: var(--brown); }
-    .section-sub  { max-width: 580px; color: var(--brown-light); font-size: 1.05rem; margin-bottom: 40px; }
-    .btn { display: inline-block; font-family: var(--ff-body); font-weight: 700; border-radius: 99px; padding: 13px 28px; cursor: pointer; border: 2px solid transparent; transition: var(--transition); font-size: 1rem; }
-    .btn-primary  { background: var(--coral); color: var(--white); }
-    .btn-primary:hover  { background: #e26b45; }
-    .btn-outline  { background: transparent; border-color: var(--coral); color: var(--coral); }
-    .btn-outline:hover  { background: var(--coral); color: var(--white); }
-    .btn-yellow   { background: var(--yellow); color: var(--brown); }
-    .btn-yellow:hover { background: #e6b33a; }
+    .container { width: 90%; max-width: 1100px; margin: 0 auto; }
+    .section   { padding: 80px 0; }
+    .section-tag { display: inline-block; font-size: .75rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--teal); background: rgba(61,189,177,.12); padding: 4px 14px; border-radius: 99px; margin-bottom: 12px; }
+    .section-title { font-family: var(--ff-body); font-weight: 900; font-size: clamp(1.8rem,4vw,2.6rem); line-height: 1.2; margin-bottom: 14px; color: var(--navy); }
+    .section-sub   { max-width: 580px; color: var(--text-mid); font-size: 1.05rem; margin-bottom: 40px; }
+
+    /* ── BUTTONS ────────────────────────────────────────────────── */
+    .btn { display: inline-block; font-family: var(--ff-body); font-weight: 800; border-radius: 99px; padding: 13px 30px; cursor: pointer; border: 2px solid transparent; transition: var(--transition); font-size: .88rem; letter-spacing: .07em; text-transform: uppercase; }
+    .btn-gold          { background: var(--gold); color: var(--white); border-color: var(--gold); }
+    .btn-gold:hover    { background: var(--gold-dark); border-color: var(--gold-dark); }
+    .btn-teal          { background: var(--teal); color: var(--white); border-color: var(--teal); }
+    .btn-teal:hover    { background: var(--teal-dark); border-color: var(--teal-dark); }
+    .btn-navy          { background: var(--navy); color: var(--white); border-color: var(--navy); }
+    .btn-navy:hover    { background: var(--navy-light); border-color: var(--navy-light); }
+    .btn-outline-white { background: transparent; border-color: var(--white); color: var(--white); }
+    .btn-outline-white:hover { background: var(--white); color: var(--navy); }
+    .btn-outline-teal  { background: transparent; border-color: var(--teal); color: var(--teal); }
+    .btn-outline-teal:hover  { background: var(--teal); color: var(--white); }
+    .btn-outline-navy  { background: transparent; border-color: var(--navy); color: var(--navy); }
+    .btn-outline-navy:hover  { background: var(--navy); color: var(--white); }
+
+    /* ── CARD ───────────────────────────────────────────────────── */
     .card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
 
-    /* ── PLACEHOLDER IMAGE BLOCKS ───────────────────────────────── */
-    .ph { display: flex; align-items: center; justify-content: center; font-size: 3rem; border-radius: var(--radius); }
-    .ph-hero  { background: linear-gradient(135deg,#F9C74F 0%,#F4845F 50%,#90BE6D 100%); min-height: 340px; border-radius: 20px; font-size: 5rem; }
-    .ph-about { background: linear-gradient(135deg,#FFF3CD,#FFCCAA); min-height: 360px; }
-    .ph-gallery { background: linear-gradient(135deg,#e8f5e9,#fff3e0,#fce4ec); aspect-ratio: 1; cursor: pointer; transition: transform var(--transition), box-shadow var(--transition); }
-    .ph-gallery:hover { transform: scale(1.03); box-shadow: 0 8px 28px rgba(61,43,31,.18); }
-    .ph-blog  { background: linear-gradient(135deg,#FFF3CD,#FFCCAA); height: 180px; }
-    .ph-product { background: linear-gradient(135deg,#e8f5e9,#c8e6c9); height: 200px; }
+    /* ── PLACEHOLDER BLOCKS ─────────────────────────────────────── */
+    .ph         { display: flex; align-items: center; justify-content: center; font-size: 3rem; border-radius: var(--radius); }
+    .ph-about   { background: var(--teal-light); min-height: 380px; }
+    .ph-gallery { background: var(--teal-light); aspect-ratio: 1; cursor: pointer; transition: transform var(--transition), box-shadow var(--transition); }
+    .ph-gallery:hover { transform: scale(1.03); box-shadow: 0 8px 28px rgba(30,58,110,.2); }
+    .ph-blog    { background: var(--teal-light); height: 190px; }
+    .ph-product { background: var(--teal-light); height: 200px; }
+
+    /* ── ANNOUNCE BAR ───────────────────────────────────────────── */
+    #announce-bar { background: #FDE8C8; text-align: center; padding: 10px 20px; font-size: .88rem; font-weight: 700; color: var(--navy); }
+    #announce-bar a { color: var(--navy); text-decoration: underline; }
 
     /* ── NAV ────────────────────────────────────────────────────── */
     #navbar {
       position: sticky; top: 0; z-index: 900;
-      background: rgba(255,248,240,.96);
+      background: rgba(255,255,255,.97);
       backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(244,132,95,.18);
+      border-bottom: 1px solid rgba(61,189,177,.15);
       padding: 14px 0;
     }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-    .nav-logo  { font-family: var(--ff-head); font-size: 1.45rem; color: var(--coral); line-height: 1; }
-    .nav-logo span { display: block; font-family: var(--ff-body); font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--brown-light); }
-    .nav-links { display: flex; gap: 28px; align-items: center; }
-    .nav-links a { font-weight: 700; font-size: .9rem; color: var(--brown); transition: color var(--transition); }
-    .nav-links a:hover { color: var(--coral); }
-    .nav-links .btn { padding: 9px 20px; font-size: .85rem; }
+    .nav-logo  { display: flex; align-items: center; }
+    .nav-logo img { height: 52px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a { font-weight: 700; font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; color: var(--navy); transition: color var(--transition); }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-links .btn { padding: 9px 20px; font-size: .78rem; }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-    .hamburger span { display: block; width: 26px; height: 3px; background: var(--brown); border-radius: 2px; transition: var(--transition); }
+    .hamburger span { display: block; width: 26px; height: 3px; background: var(--navy); border-radius: 2px; transition: var(--transition); }
     .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
     @media(max-width:768px){
       .hamburger { display: flex; }
-      .nav-links { display: none; flex-direction: column; gap: 0; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); border-bottom: 2px solid var(--coral); padding: 16px 0; }
+      .nav-links { display: none; flex-direction: column; gap: 0; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 2px solid var(--teal); padding: 16px 0; }
       .nav-links.open { display: flex; }
       .nav-links a, .nav-links .btn { width: 100%; text-align: center; padding: 12px 20px; border-radius: 0; border: none; }
-      .nav-links .btn { margin: 8px 20px; width: auto; border-radius: 99px; border: 2px solid var(--coral); }
+      .nav-links .btn { margin: 8px 20px; width: auto; border-radius: 99px; }
     }
 
     /* ── HERO ───────────────────────────────────────────────────── */
-    #hero { padding: 60px 0 80px; }
+    #hero { background: var(--teal); padding: 72px 0 88px; overflow: hidden; }
     .hero-grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; }
     @media(min-width:768px){ .hero-grid { grid-template-columns: 1fr 1fr; } }
-    .hero-eyebrow { font-size: .8rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--coral); margin-bottom: 12px; }
-    .hero-title { font-family: var(--ff-head); font-size: clamp(2.2rem,5vw,3.6rem); line-height: 1.15; margin-bottom: 18px; color: var(--brown); }
-    .hero-title em { color: var(--coral); font-style: normal; }
-    .hero-desc { color: var(--brown-light); font-size: 1.1rem; margin-bottom: 30px; max-width: 480px; }
-    .hero-btns { display: flex; flex-wrap: wrap; gap: 12px; }
-    .hero-stats { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 40px; }
-    .hero-stat strong { display: block; font-family: var(--ff-head); font-size: 2rem; color: var(--coral); }
-    .hero-stat span   { font-size: .85rem; color: var(--brown-light); font-weight: 700; }
+    .hero-eyebrow { font-size: .78rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.72); margin-bottom: 10px; }
+    .hero-brand { font-family: var(--ff-body); font-weight: 300; font-size: clamp(1.3rem,2.8vw,1.8rem); letter-spacing: .08em; color: rgba(255,255,255,.88); margin-bottom: 10px; }
+    .hero-title { font-family: var(--ff-body); font-weight: 900; font-size: clamp(2.4rem,5.5vw,3.8rem); line-height: 1.08; margin-bottom: 22px; color: var(--white); }
+    .hero-title em { font-style: italic; }
+    .hero-desc { color: rgba(255,255,255,.82); font-size: 1.05rem; margin-bottom: 32px; max-width: 460px; }
+    .hero-btns { display: flex; flex-wrap: wrap; gap: 14px; }
+    .hero-stats { display: flex; flex-wrap: wrap; gap: 32px; margin-top: 44px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,.22); }
+    .hero-stat strong { display: block; font-weight: 900; font-size: 2rem; color: var(--white); }
+    .hero-stat span   { font-size: .8rem; color: rgba(255,255,255,.72); font-weight: 700; text-transform: uppercase; letter-spacing: .07em; }
+
+    /* Hero portrait cards */
+    @keyframes float-tall {
+      0%, 100% { translate: 0 0;     rotate: -2deg; }
+      50%       { translate: 0 -14px; rotate:  1.5deg; }
+    }
+    @keyframes float-mid {
+      0%, 100% { translate: 0 0;     rotate:  1.5deg; }
+      50%       { translate: 0 -10px; rotate: -2deg; }
+    }
+    @keyframes float-short {
+      0%, 100% { translate: 0 0;     rotate:  0.5deg; }
+      50%       { translate: 0 -18px; rotate: -1.5deg; }
+    }
+    .hero-photos { display: flex; justify-content: center; align-items: flex-end; gap: 16px; padding-bottom: 12px; }
+    .hero-photo-card { border-radius: 18px; overflow: hidden; box-shadow: 0 12px 40px rgba(30,58,110,.28); display: flex; align-items: center; justify-content: center; font-size: 4rem; will-change: translate, rotate, scale; transition: scale .3s ease, box-shadow .3s ease; cursor: pointer; }
+    .hero-photo-card:hover { scale: 1.07; box-shadow: 0 28px 64px rgba(30,58,110,.52); }
+    .hero-photo-card.tall  { width: 155px; height: 220px; animation: float-tall  4.4s ease-in-out infinite; }
+    .hero-photo-card.mid   { width: 145px; height: 200px; margin-bottom: 28px; animation: float-mid   3.7s ease-in-out infinite; animation-delay: -1.5s; }
+    .hero-photo-card.short { width: 140px; height: 185px; animation: float-short 5.1s ease-in-out infinite; animation-delay: -3s; }
+    @media(max-width:480px){
+      .hero-photos { gap: 10px; }
+      .hero-photo-card.tall  { width: 108px; height: 154px; font-size: 2.8rem; }
+      .hero-photo-card.mid   { width: 100px; height: 140px; }
+      .hero-photo-card.short { width: 95px;  height: 128px; }
+    }
+
+    /* ── BANNER STRIP ───────────────────────────────────────────── */
+    .banner-strip { background: var(--navy); padding: 32px 0; }
+    .banner-strip-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+    .banner-strip p { color: var(--white); font-size: 1.1rem; font-weight: 700; max-width: 620px; }
+    .banner-strip p span { color: var(--gold); }
 
     /* ── ABOUT ──────────────────────────────────────────────────── */
-    #about {}
-    .about-grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; }
+    .about-grid { display: grid; grid-template-columns: 1fr; gap: 56px; align-items: center; }
     @media(min-width:768px){ .about-grid { grid-template-columns: 1fr 1fr; } }
-    .about-body p { color: var(--brown-light); margin-bottom: 16px; font-size: 1.05rem; }
+    .about-img-wrap { position: relative; }
+    .about-img-wrap .ph-about { border-radius: 20px; }
+    .about-accent { position: absolute; border-radius: 50%; }
+    .about-accent.tl { width: 120px; height: 120px; top: -24px; left: -24px; background: var(--teal); opacity: .15; }
+    .about-accent.br { width: 90px; height: 90px; bottom: -18px; right: -18px; background: var(--gold); opacity: .18; }
+    .about-body p { color: var(--text-mid); margin-bottom: 16px; font-size: 1rem; }
     .about-values { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
-    .tag { display: inline-block; background: rgba(144,190,109,.18); color: #5a8a3c; font-weight: 700; font-size: .82rem; padding: 6px 14px; border-radius: 99px; }
+    .tag { display: inline-block; background: var(--teal-light); color: var(--navy); font-weight: 800; font-size: .8rem; padding: 6px 16px; border-radius: 99px; }
 
     /* ── PROGRAMS ───────────────────────────────────────────────── */
-    #programs {}
     .programs-grid { display: grid; grid-template-columns: 1fr; gap: 28px; }
     @media(min-width:600px){ .programs-grid { grid-template-columns: repeat(3,1fr); } }
-    .program-card { border-radius: var(--radius); padding: 32px 28px; text-align: center; box-shadow: var(--shadow); }
-    .program-card.books  { background: linear-gradient(160deg,#FFF8DC,#FFE8C8); }
-    .program-card.arts   { background: linear-gradient(160deg,#FCE4EC,#FFD0C0); }
-    .program-card.music  { background: linear-gradient(160deg,#E8F5E9,#C8E6C9); }
-    .program-icon { font-size: 3.2rem; margin-bottom: 16px; }
-    .program-card h3 { font-family: var(--ff-head); font-size: 1.4rem; margin-bottom: 10px; color: var(--brown); }
-    .program-card p  { font-size: .95rem; color: var(--brown-light); }
+    .program-card { border-radius: 18px; overflow: hidden; box-shadow: var(--shadow); background: var(--navy); }
+    .program-card-img { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+    .program-card.books .program-card-img { background: linear-gradient(155deg,#3DBDB1,#2A9D93); }
+    .program-card.arts  .program-card-img { background: linear-gradient(155deg,#2D5087,#1E3A6E); }
+    .program-card.music .program-card-img { background: linear-gradient(155deg,#3DBDB1,#1E3A6E); }
+    .program-card-body { padding: 28px 24px; text-align: center; }
+    .program-card h3 { font-weight: 900; font-size: 1.25rem; margin-bottom: 10px; color: var(--white); }
+    .program-card p  { font-size: .93rem; color: rgba(255,255,255,.72); margin-bottom: 22px; }
+    .program-card .btn { font-size: .8rem; }
+
+    /* ── IMPACT STATS ───────────────────────────────────────────── */
+    .stats-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 40px; }
+    @media(min-width:700px){ .stats-grid { grid-template-columns: repeat(4,1fr); } }
+    .stat-item { text-align: center; }
+    .stat-icon { font-size: 2.8rem; margin-bottom: 12px; }
+    .stat-number { font-weight: 900; font-size: 2.4rem; color: var(--navy); line-height: 1; margin-bottom: 6px; }
+    .stat-label  { font-size: .83rem; color: var(--text-mid); font-weight: 700; text-transform: uppercase; letter-spacing: .07em; }
 
     /* ── GALLERY ────────────────────────────────────────────────── */
-    #gallery {}
-    .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
     @media(min-width:600px){ .gallery-grid { grid-template-columns: repeat(3,1fr); } }
-    @media(min-width:900px){ .gallery-grid { grid-template-columns: repeat(3,1fr); } }
-    .gallery-item { position: relative; border-radius: var(--radius); overflow: hidden; }
+    .gallery-item { position: relative; border-radius: 14px; overflow: hidden; cursor: pointer; }
     .gallery-item .ph-gallery { border-radius: 0; width: 100%; }
-    .gallery-overlay { position: absolute; inset: 0; background: rgba(61,43,31,0); display: flex; align-items: center; justify-content: center; transition: var(--transition); border-radius: 0; }
-    .gallery-item:hover .gallery-overlay { background: rgba(61,43,31,.35); }
+    .gallery-item img { transition: transform .45s ease; display: block; }
+    .gallery-item:hover img { transform: scale(1.08); }
+    .gallery-overlay { position: absolute; inset: 0; background: rgba(30,58,110,0); display: flex; align-items: center; justify-content: center; transition: var(--transition); }
+    .gallery-item:hover .gallery-overlay { background: rgba(30,58,110,.45); }
     .gallery-overlay span { color: var(--white); font-size: 2rem; opacity: 0; transition: var(--transition); }
     .gallery-item:hover .gallery-overlay span { opacity: 1; }
 
     /* Lightbox */
-    #lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(30,16,8,.88); align-items: center; justify-content: center; padding: 20px; }
+    #lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(15,30,60,.93); align-items: center; justify-content: center; padding: 20px; }
     #lightbox.active { display: flex; }
     .lb-inner { position: relative; max-width: 720px; width: 100%; }
-    .lb-img { width: 100%; border-radius: 20px; min-height: 340px; display: flex; align-items: center; justify-content: center; font-size: 6rem; }
-    .lb-close { position: absolute; top: -14px; right: -14px; background: var(--coral); color: var(--white); border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-    .lb-nav { display: flex; justify-content: space-between; margin-top: 14px; }
+    .lb-img   { width: 100%; border-radius: 20px; min-height: 340px; display: flex; align-items: center; justify-content: center; font-size: 6rem; }
+    .lb-close { position: absolute; top: -14px; right: -14px; background: var(--gold); color: var(--white); border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .lb-nav   { display: flex; justify-content: space-between; margin-top: 14px; }
     .lb-nav button { background: rgba(255,255,255,.15); border: none; color: var(--white); font-size: 1.6rem; padding: 8px 18px; border-radius: 8px; cursor: pointer; transition: var(--transition); }
-    .lb-nav button:hover { background: var(--coral); }
-    .lb-caption { text-align: center; color: rgba(255,255,255,.75); font-size: .9rem; margin-top: 8px; }
+    .lb-nav button:hover { background: var(--teal); }
+    .lb-caption { text-align: center; color: rgba(255,255,255,.72); font-size: .9rem; margin-top: 8px; }
 
     /* ── BLOG ───────────────────────────────────────────────────── */
-    #blog {}
+    .blog-header { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 40px; }
     .blog-grid { display: grid; grid-template-columns: 1fr; gap: 28px; }
     @media(min-width:700px){ .blog-grid { grid-template-columns: repeat(3,1fr); } }
     .blog-card .ph-blog { border-radius: var(--radius) var(--radius) 0 0; }
     .blog-body { padding: 22px 24px; }
-    .blog-meta { font-size: .78rem; color: var(--brown-light); font-weight: 700; margin-bottom: 8px; text-transform: uppercase; letter-spacing: .06em; }
-    .blog-body h3 { font-family: var(--ff-head); font-size: 1.1rem; margin-bottom: 10px; color: var(--brown); line-height: 1.3; }
-    .blog-body p  { font-size: .93rem; color: var(--brown-light); margin-bottom: 16px; }
-    .blog-body .btn { padding: 8px 18px; font-size: .85rem; }
+    .blog-meta { font-size: .78rem; color: var(--text-mid); font-weight: 700; margin-bottom: 8px; text-transform: uppercase; letter-spacing: .07em; }
+    .blog-body h3 { font-weight: 800; font-size: 1.05rem; margin-bottom: 10px; color: var(--navy); line-height: 1.35; }
+    .blog-body p  { font-size: .93rem; color: var(--text-mid); margin-bottom: 16px; }
+    .blog-body .btn { padding: 8px 20px; font-size: .78rem; }
 
     /* ── DONATE ─────────────────────────────────────────────────── */
-    #donate { text-align: center; }
-    .donate-hero { background: linear-gradient(135deg,#F4845F,#F9C74F); border-radius: 28px; padding: 56px 32px; margin-bottom: 56px; color: var(--white); }
-    .donate-hero h2 { font-family: var(--ff-head); font-size: clamp(1.8rem,4vw,2.8rem); margin-bottom: 14px; }
-    .donate-hero p  { font-size: 1.1rem; opacity: .92; max-width: 520px; margin: 0 auto 28px; }
-    .paypal-donate-wrap form { display: inline-block; }
+    .donate-hero { background: var(--navy); border-radius: 24px; padding: 64px 40px; margin-bottom: 60px; color: var(--white); text-align: center; position: relative; overflow: hidden; }
+    .donate-hero::before { content:''; position:absolute; top:-60px; right:-60px; width:240px; height:240px; border-radius:50%; background:var(--teal); opacity:.14; }
+    .donate-hero::after  { content:''; position:absolute; bottom:-44px; left:-44px; width:180px; height:180px; border-radius:50%; background:var(--gold); opacity:.11; }
+    .donate-hero h2 { font-weight: 900; font-size: clamp(1.8rem,4vw,2.6rem); margin-bottom: 14px; position: relative; }
+    .donate-hero p  { font-size: 1.05rem; opacity: .87; max-width: 520px; margin: 0 auto 32px; position: relative; }
+    .paypal-donate-wrap form { display: inline-block; position: relative; }
     .paypal-donate-wrap input[type=submit],
-    .paypal-donate-btn { font-family: var(--ff-body); font-weight: 800; background: var(--white); color: var(--coral); border: none; border-radius: 99px; padding: 14px 36px; font-size: 1.1rem; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,.18); transition: var(--transition); letter-spacing: .02em; }
-    .paypal-donate-btn:hover,
-    .paypal-donate-wrap input[type=submit]:hover { background: var(--cream); transform: translateY(-2px); }
-    .sponsor-tiers { display: grid; grid-template-columns: 1fr; gap: 24px; text-align: left; }
+    .paypal-donate-btn { font-family: var(--ff-body); font-weight: 800; background: var(--gold); color: var(--white); border: none; border-radius: 99px; padding: 15px 42px; font-size: 1rem; cursor: pointer; letter-spacing: .07em; text-transform: uppercase; transition: var(--transition); }
+    .paypal-donate-wrap input[type=submit]:hover,
+    .paypal-donate-btn:hover { background: var(--gold-dark); transform: translateY(-2px); }
+    .sponsor-tiers { display: grid; grid-template-columns: 1fr; gap: 24px; }
     @media(min-width:600px){ .sponsor-tiers { grid-template-columns: repeat(3,1fr); } }
-    .tier-card { border-radius: var(--radius); padding: 32px 28px; box-shadow: var(--shadow); background: var(--white); position: relative; overflow: hidden; }
-    .tier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; }
-    .tier-card.books::before  { background: var(--yellow); }
-    .tier-card.arts::before   { background: var(--coral); }
-    .tier-card.scholar::before{ background: var(--green); }
-    .tier-amount { font-family: var(--ff-head); font-size: 2rem; color: var(--coral); margin-bottom: 4px; }
-    .tier-card h3 { font-family: var(--ff-head); font-size: 1.2rem; margin-bottom: 10px; color: var(--brown); }
-    .tier-card ul { margin: 0 0 20px; padding-left: 18px; list-style: disc; }
-    .tier-card ul li { font-size: .93rem; color: var(--brown-light); margin-bottom: 6px; }
+    .tier-card { border-radius: var(--radius); padding: 32px 28px; box-shadow: var(--shadow); background: var(--white); border-top: 5px solid transparent; }
+    .tier-card.books   { border-top-color: var(--teal); }
+    .tier-card.arts    { border-top-color: var(--gold); }
+    .tier-card.scholar { border-top-color: var(--navy); }
+    .tier-amount { font-weight: 900; font-size: 2.2rem; color: var(--navy); margin-bottom: 4px; }
+    .tier-card h3 { font-weight: 800; font-size: 1.12rem; margin-bottom: 12px; color: var(--navy); }
+    .tier-card ul { margin: 0 0 22px; padding-left: 18px; list-style: disc; }
+    .tier-card ul li { font-size: .93rem; color: var(--text-mid); margin-bottom: 7px; }
     .tier-card .btn { width: 100%; text-align: center; }
 
     /* ── SHOP ───────────────────────────────────────────────────── */
-    #shop {}
     .shop-grid { display: grid; grid-template-columns: 1fr; gap: 28px; }
     @media(min-width:600px){ .shop-grid { grid-template-columns: repeat(2,1fr); } }
     @media(min-width:900px){ .shop-grid { grid-template-columns: repeat(4,1fr); } }
     .product-card .ph-product { border-radius: var(--radius) var(--radius) 0 0; }
     .product-body { padding: 20px; }
-    .product-body h3 { font-family: var(--ff-head); font-size: 1.05rem; margin-bottom: 6px; color: var(--brown); }
-    .product-body p  { font-size: .88rem; color: var(--brown-light); margin-bottom: 12px; }
-    .product-price { font-weight: 800; color: var(--coral); font-size: 1.2rem; margin-bottom: 14px; }
+    .product-body h3 { font-weight: 800; font-size: 1rem; margin-bottom: 6px; color: var(--navy); }
+    .product-body p  { font-size: .88rem; color: var(--text-mid); margin-bottom: 12px; }
+    .product-price { font-weight: 900; color: var(--teal); font-size: 1.2rem; margin-bottom: 14px; }
     .product-body form { display: block; }
-    .product-body input[type=submit] { width: 100%; font-family: var(--ff-body); font-weight: 700; background: var(--coral); color: var(--white); border: none; border-radius: 99px; padding: 11px; font-size: .93rem; cursor: pointer; transition: var(--transition); }
-    .product-body input[type=submit]:hover { background: #e26b45; }
-    .shop-note { text-align: center; margin-top: 20px; font-size: .88rem; color: var(--brown-light); }
-    .shop-note a { color: var(--coral); font-weight: 700; }
+    .product-body input[type=submit] { width: 100%; font-family: var(--ff-body); font-weight: 800; background: var(--gold); color: var(--white); border: none; border-radius: 99px; padding: 11px; font-size: .83rem; cursor: pointer; letter-spacing: .06em; text-transform: uppercase; transition: var(--transition); }
+    .product-body input[type=submit]:hover { background: var(--gold-dark); }
+    .shop-note { text-align: center; margin-top: 22px; font-size: .88rem; color: var(--text-mid); }
+    .shop-note a { color: var(--teal); font-weight: 700; }
 
     /* ── CONTACT ────────────────────────────────────────────────── */
-    #contact {}
     .contact-grid { display: grid; grid-template-columns: 1fr; gap: 48px; }
     @media(min-width:768px){ .contact-grid { grid-template-columns: 1fr 1fr; } }
     .contact-form { background: var(--white); border-radius: var(--radius); padding: 36px 32px; box-shadow: var(--shadow); }
-    .contact-form h3 { font-family: var(--ff-head); font-size: 1.6rem; margin-bottom: 24px; color: var(--brown); }
+    .contact-form h3 { font-weight: 900; font-size: 1.5rem; margin-bottom: 24px; color: var(--navy); }
     .form-group { margin-bottom: 18px; }
-    .form-group label { display: block; font-weight: 700; font-size: .88rem; margin-bottom: 6px; color: var(--brown); }
-    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 11px 15px; border: 2px solid #f0e0d0; border-radius: 10px; font-family: var(--ff-body); font-size: .95rem; color: var(--brown); background: var(--cream); transition: border-color var(--transition); outline: none; }
-    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--coral); }
+    .form-group label { display: block; font-weight: 700; font-size: .84rem; margin-bottom: 6px; color: var(--navy); text-transform: uppercase; letter-spacing: .06em; }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px 16px; border: 2px solid #D0E8E6; border-radius: 10px; font-family: var(--ff-body); font-size: .95rem; color: var(--text-dark); background: var(--off-white); transition: border-color var(--transition); outline: none; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--teal); }
     .form-group textarea { resize: vertical; min-height: 110px; }
     .contact-form .btn { width: 100%; text-align: center; }
-    .contact-info h3 { font-family: var(--ff-head); font-size: 1.6rem; margin-bottom: 16px; color: var(--brown); }
-    .contact-info p  { color: var(--brown-light); font-size: 1rem; margin-bottom: 20px; }
-    .contact-detail { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; font-size: .97rem; color: var(--brown); }
-    .contact-detail .icon { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
-    .icon-phone  { background: rgba(249,199,79,.25); }
-    .icon-email  { background: rgba(244,132,95,.2); }
-    .icon-map    { background: rgba(144,190,109,.25); }
+    .contact-info h3 { font-weight: 900; font-size: 1.5rem; margin-bottom: 16px; color: var(--navy); }
+    .contact-info p  { color: var(--text-mid); font-size: 1rem; margin-bottom: 24px; }
+    .contact-detail { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; font-size: .97rem; color: var(--navy); }
+    .contact-detail .icon { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+    .icon-phone { background: rgba(61,189,177,.2); }
+    .icon-email { background: rgba(232,160,32,.2); }
+    .icon-map   { background: rgba(30,58,110,.1); }
     .map-wrap { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); margin-top: 24px; }
     .map-wrap iframe { width: 100%; height: 260px; border: 0; display: block; }
 
+    /* ── NEWSLETTER STRIP ───────────────────────────────────────── */
+    .newsletter-strip { background: var(--navy); padding: 64px 0; }
+    .newsletter-inner { text-align: center; }
+    .newsletter-inner h2 { font-weight: 900; font-size: clamp(1.6rem,3.5vw,2.2rem); color: var(--white); margin-bottom: 12px; }
+    .newsletter-inner p  { color: rgba(255,255,255,.75); font-size: 1rem; margin-bottom: 28px; }
+
     /* ── FOOTER ─────────────────────────────────────────────────── */
-    #footer { background: var(--brown); color: rgba(255,248,240,.85); padding: 56px 0 28px; }
-    .footer-grid { display: grid; grid-template-columns: 1fr; gap: 40px; margin-bottom: 40px; }
+    #footer { background: #152E5A; color: rgba(255,255,255,.8); padding: 64px 0 28px; }
+    .footer-grid { display: grid; grid-template-columns: 1fr; gap: 44px; margin-bottom: 44px; }
     @media(min-width:700px){ .footer-grid { grid-template-columns: 2fr 1fr 1fr; } }
-    .footer-brand .nav-logo { color: var(--yellow); font-size: 1.6rem; margin-bottom: 12px; }
-    .footer-brand p { font-size: .93rem; opacity: .75; max-width: 280px; line-height: 1.7; }
-    .footer-col h4 { font-family: var(--ff-head); color: var(--yellow); font-size: 1rem; margin-bottom: 16px; }
+    .footer-logo img { height: 64px; width: auto; display: block; margin-bottom: 14px; }
+    .footer-brand p { font-size: .92rem; opacity: .68; max-width: 280px; line-height: 1.75; }
+    .footer-col h4 { font-weight: 800; color: var(--gold); font-size: .8rem; letter-spacing: .13em; text-transform: uppercase; margin-bottom: 18px; }
     .footer-col ul li { margin-bottom: 10px; }
-    .footer-col ul li a { font-size: .9rem; opacity: .75; transition: opacity var(--transition); }
-    .footer-col ul li a:hover { opacity: 1; }
-    .socials { display: flex; gap: 12px; margin-top: 20px; }
-    .social-btn { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,248,240,.12); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: background var(--transition); }
-    .social-btn:hover { background: var(--coral); }
-    .footer-bottom { border-top: 1px solid rgba(255,248,240,.12); padding-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: .82rem; opacity: .6; }
+    .footer-col ul li a { font-size: .9rem; opacity: .7; transition: opacity var(--transition), color var(--transition); }
+    .footer-col ul li a:hover { opacity: 1; color: var(--teal); }
+    .socials { display: flex; gap: 12px; margin-top: 22px; }
+    .social-btn { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,.1); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: background var(--transition); }
+    .social-btn:hover { background: var(--teal); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.1); padding-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: .82rem; opacity: .52; }
 
     /* ── SCROLL REVEAL ──────────────────────────────────────────── */
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity .55s ease, transform .55s ease; }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .55s ease, transform .55s ease; }
     .reveal.visible { opacity: 1; transform: none; }
 
     /* ── BACK TO TOP ────────────────────────────────────────────── */
-    #back-top { position: fixed; bottom: 24px; right: 24px; width: 46px; height: 46px; background: var(--coral); color: var(--white); border: none; border-radius: 50%; font-size: 1.3rem; cursor: pointer; box-shadow: var(--shadow); display: none; align-items: center; justify-content: center; z-index: 800; transition: var(--transition); }
+    #back-top { position: fixed; bottom: 24px; right: 24px; width: 46px; height: 46px; background: var(--gold); color: var(--white); border: none; border-radius: 50%; font-size: 1.3rem; cursor: pointer; box-shadow: var(--shadow); display: none; align-items: center; justify-content: center; z-index: 800; transition: var(--transition); }
     #back-top.show { display: flex; }
-    #back-top:hover { background: #e26b45; transform: translateY(-3px); }
+    #back-top:hover { background: var(--gold-dark); transform: translateY(-3px); }
   </style>
 </head>
 <body>
+
+<!-- ══════════════════ ANNOUNCE BAR ══════════════════ -->
+<div id="announce-bar">
+  📚 Books change lives. <a href="#donate">Support Marie's Little Library with a donation →</a>
+</div>
 
 <!-- ══════════════════ NAV ══════════════════ -->
 <nav id="navbar">
   <div class="container nav-inner">
     <a href="#hero" class="nav-logo">
-      Marie's Little Library
-      <span>Books · Arts · Music</span>
+      <img src="images/logo.jpg" alt="Marie's Little Library" />
     </a>
     <button class="hamburger" id="ham" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -257,7 +326,7 @@
       <li><a href="#blog">News</a></li>
       <li><a href="#shop">Shop</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="#donate" class="btn btn-primary">Donate ♥</a></li>
+      <li><a href="#donate" class="btn btn-gold">Donate ♥</a></li>
     </ul>
   </div>
 </nav>
@@ -267,16 +336,13 @@
   <div class="container">
     <div class="hero-grid">
       <div>
-        <p class="hero-eyebrow">✨ Non-profit · Est. 2020</p>
-        <h1 class="hero-title">
-          Sharing the <em>Joy</em> of<br>Books, Arts &amp; Music
-        </h1>
-        <p class="hero-desc">
-          Founded by a mother and daughter, Marie's Little Library brings the magic of reading, creativity, and music to children in humble communities — one book, one brushstroke, one song at a time.
-        </p>
+        <p class="hero-eyebrow">Non-profit · Est. 2020 · Bay Area, CA</p>
+        <p class="hero-brand">Marie's Little Library</p>
+        <h1 class="hero-title">Every Child<br>Deserves a<br><em>Story.</em></h1>
+        <p class="hero-desc">Founded by a mother and daughter, we bring books, arts, and music to children in humble communities — free of charge, full of love.</p>
         <div class="hero-btns">
-          <a href="#donate" class="btn btn-primary">Donate Now ♥</a>
-          <a href="#about" class="btn btn-outline">Our Story</a>
+          <a href="#donate" class="btn btn-gold">Donate Now ♥</a>
+          <a href="#about" class="btn btn-outline-white">Our Story</a>
         </div>
         <div class="hero-stats">
           <div class="hero-stat"><strong>500+</strong><span>Kids Reached</span></div>
@@ -284,34 +350,47 @@
           <div class="hero-stat"><strong>4+</strong><span>Years of Joy</span></div>
         </div>
       </div>
-      <div class="ph ph-hero reveal">📚</div>
+      <div class="hero-photos reveal">
+        <div class="hero-photo-card tall"><img src="images/card1.jpg" alt="Child reading a book" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div class="hero-photo-card mid"><img src="images/card2.jpg" alt="Child doing art" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div class="hero-photo-card short"><img src="images/card3.jpg" alt="Child singing" style="width:100%;height:100%;object-fit:cover;" /></div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ══════════════════ BANNER STRIP ══════════════════ -->
+<div class="banner-strip">
+  <div class="container banner-strip-inner">
+    <p>Your support puts <span>books in little hands</span>, art supplies in young fingers, and music in every heart.</p>
+    <a href="#donate" class="btn btn-gold">Give Today</a>
+  </div>
+</div>
+
 <!-- ══════════════════ ABOUT ══════════════════ -->
-<section id="about" class="section alt-bg">
+<section id="about" class="section">
   <div class="container">
     <div class="about-grid">
-      <div class="ph ph-about reveal">🌻</div>
+      <div class="about-img-wrap reveal">
+        <div class="about-accent tl"></div>
+        <div class="about-accent br"></div>
+        <img src="images/about.jpg" alt="Marie reading to children in a park" style="width:100%;min-height:380px;object-fit:cover;border-radius:20px;display:block;" />
+      </div>
       <div class="about-body reveal">
         <span class="section-tag">About Us</span>
         <h2 class="section-title">A Story of Love &amp; Community</h2>
-        <p>
-          Marie's Little Library was born in 2020 from the hearts of a mother and daughter who believed every child — no matter their circumstances — deserves access to books, art supplies, and music. What started as a small table of donated books has grown into a movement of generosity and creativity.
-        </p>
-        <p>
-          We serve children ages 2–18 in underserved communities, offering free book distributions, hands-on art workshops, and musical events that spark imagination and build confidence.
-        </p>
-        <p>
-          Every donation funds books, art kits, and scholarship opportunities for children who need it most. Together, we're writing a brighter story — one child at a time.
-        </p>
+        <p>Marie's Little Library was born in 2020 from the hearts of a mother and daughter who believed every child — no matter their circumstances — deserves access to books, art supplies, and music.</p>
+        <p>We serve children ages 2–18 in underserved communities, offering free book distributions, hands-on art workshops, and musical events that spark imagination and build confidence.</p>
+        <p>Every donation funds books, art kits, and scholarship opportunities for children who need it most. Together, we're writing a brighter story — one child at a time.</p>
         <div class="about-values">
-          <span class="tag">📖 Free Books</span>
-          <span class="tag">🎨 Arts Workshops</span>
-          <span class="tag">🎵 Music Programs</span>
-          <span class="tag">🌱 Community-Driven</span>
-          <span class="tag">💛 Non-Profit</span>
+          <span class="tag">Free Books</span>
+          <span class="tag">Arts Workshops</span>
+          <span class="tag">Music Programs</span>
+          <span class="tag">Community-Driven</span>
+          <span class="tag">Non-Profit</span>
+        </div>
+        <div style="margin-top:28px;">
+          <a href="#programs" class="btn btn-teal">See Our Programs</a>
         </div>
       </div>
     </div>
@@ -319,77 +398,117 @@
 </section>
 
 <!-- ══════════════════ PROGRAMS ══════════════════ -->
-<section id="programs" class="section">
+<section id="programs" class="section" style="background:var(--off-white)">
   <div class="container">
-    <div class="reveal">
+    <div class="reveal" style="text-align:center;margin-bottom:48px;">
       <span class="section-tag">What We Do</span>
       <h2 class="section-title">Our Programs</h2>
-      <p class="section-sub">Three pillars of joy — every program is free for children in our community.</p>
+      <p class="section-sub" style="margin:0 auto;">Three pillars of joy — every program is free for children in our community.</p>
     </div>
     <div class="programs-grid">
       <div class="program-card books reveal">
-        <div class="program-icon">📚</div>
-        <h3>Little Library</h3>
-        <p>We distribute gently-loved and new children's books to kids ages 2–18. Our collections feature diverse stories that reflect every child's world and spark a lifelong love of reading.</p>
+        <div class="program-card-img">📚</div>
+        <div class="program-card-body">
+          <h3>Little Library</h3>
+          <p>We distribute gently-loved and new children's books to kids ages 2–18, featuring diverse stories that reflect every child's world.</p>
+          <a href="#contact" class="btn btn-gold">Learn More</a>
+        </div>
       </div>
       <div class="program-card arts reveal">
-        <div class="program-icon">🎨</div>
-        <h3>Arts &amp; Creativity</h3>
-        <p>From painting to collage, our art workshops give children hands-on tools to express themselves freely. Every child is an artist — we just provide the canvas and colors.</p>
+        <div class="program-card-img">🎨</div>
+        <div class="program-card-body">
+          <h3>Arts &amp; Creativity</h3>
+          <p>From painting to collage, our art workshops give children hands-on tools to express themselves freely. Every child is an artist.</p>
+          <a href="#contact" class="btn btn-gold">Learn More</a>
+        </div>
       </div>
       <div class="program-card music reveal">
-        <div class="program-icon">🎵</div>
-        <h3>Music &amp; Joy</h3>
-        <p>Music brings community together. Our music events and sing-alongs introduce children to the joy of rhythm, melody, and creative expression in a warm, welcoming space.</p>
+        <div class="program-card-img">🎵</div>
+        <div class="program-card-body">
+          <h3>Music &amp; Joy</h3>
+          <p>Our music events and sing-alongs introduce children to the joy of rhythm, melody, and creative expression in a welcoming space.</p>
+          <a href="#contact" class="btn btn-gold">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ IMPACT STATS ══════════════════ -->
+<section id="impact" class="section">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:52px;">
+      <span class="section-tag">Impact by the Numbers</span>
+      <h2 class="section-title">What We Catalyze</h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-icon">📚</div>
+        <div class="stat-number">1,200+</div>
+        <div class="stat-label">Books Shared</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-icon">👧</div>
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Kids Reached</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-icon">🎨</div>
+        <div class="stat-number">20+</div>
+        <div class="stat-label">Art Workshops</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-icon">🎵</div>
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Music Events</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ══════════════════ GALLERY ══════════════════ -->
-<section id="gallery" class="section alt-bg">
+<section id="gallery" class="section" style="background:var(--off-white)">
   <div class="container">
-    <div class="reveal">
+    <div class="reveal" style="text-align:center;margin-bottom:48px;">
       <span class="section-tag">Gallery</span>
       <h2 class="section-title">Moments of Magic</h2>
-      <p class="section-sub">Glimpses of joy from our book drives, art workshops, and community events. (Your professional photos will go here!)</p>
+      <p class="section-sub" style="margin:0 auto;">Glimpses of joy from our book drives, art workshops, and community events.</p>
     </div>
     <div class="gallery-grid">
-      <!-- Items — data-emoji and data-caption used by lightbox -->
       <div class="gallery-item reveal" data-index="0" tabindex="0" role="button" aria-label="Open image 1">
-        <div class="ph ph-gallery" style="background:linear-gradient(135deg,#FFE8C8,#F4845F)">📚</div>
+        <img src="images/gallery1.jpg" alt="Book distribution day" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
         <div class="gallery-overlay"><span>🔍</span></div>
       </div>
       <div class="gallery-item reveal" data-index="1" tabindex="0" role="button" aria-label="Open image 2">
-        <div class="ph ph-gallery" style="background:linear-gradient(135deg,#FCE4EC,#F9C74F)">🎨</div>
+        <img src="images/gallery2.jpg" alt="Art workshop" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
         <div class="gallery-overlay"><span>🔍</span></div>
       </div>
       <div class="gallery-item reveal" data-index="2" tabindex="0" role="button" aria-label="Open image 3">
-        <div class="ph ph-gallery" style="background:linear-gradient(135deg,#E8F5E9,#90BE6D)">🎵</div>
+        <img src="images/gallery3.jpg" alt="Music event" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
         <div class="gallery-overlay"><span>🔍</span></div>
       </div>
       <div class="gallery-item reveal" data-index="3" tabindex="0" role="button" aria-label="Open image 4">
-        <div class="ph ph-gallery" style="background:linear-gradient(135deg,#FFF3CD,#F4845F)">🌸</div>
+        <img src="images/gallery4.jpg" alt="Community gathering" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
         <div class="gallery-overlay"><span>🔍</span></div>
       </div>
       <div class="gallery-item reveal" data-index="4" tabindex="0" role="button" aria-label="Open image 5">
-        <div class="ph ph-gallery" style="background:linear-gradient(135deg,#E8F5E9,#F9C74F)">👦</div>
+        <img src="images/gallery5.jpg" alt="Reading time is the best time" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
         <div class="gallery-overlay"><span>🔍</span></div>
       </div>
       <div class="gallery-item reveal" data-index="5" tabindex="0" role="button" aria-label="Open image 6">
-        <div class="ph ph-gallery" style="background:linear-gradient(135deg,#FCE4EC,#90BE6D)">📖</div>
+        <img src="images/gallery6.jpg" alt="A new story for every child" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
         <div class="gallery-overlay"><span>🔍</span></div>
       </div>
       <div class="gallery-item reveal" data-index="6" tabindex="0" role="button" aria-label="Open image 7">
-        <div class="ph ph-gallery" style="background:linear-gradient(135deg,#FFF3CD,#FCE4EC)">🖍️</div>
+        <img src="images/gallery7.jpg" alt="Saturday art workshop" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
         <div class="gallery-overlay"><span>🔍</span></div>
       </div>
       <div class="gallery-item reveal" data-index="7" tabindex="0" role="button" aria-label="Open image 8">
-        <div class="ph ph-gallery" style="background:linear-gradient(135deg,#E8F5E9,#F4845F)">🎶</div>
+        <img src="images/gallery8.jpg" alt="Community sing-along" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
         <div class="gallery-overlay"><span>🔍</span></div>
       </div>
       <div class="gallery-item reveal" data-index="8" tabindex="0" role="button" aria-label="Open image 9">
-        <div class="ph ph-gallery" style="background:linear-gradient(135deg,#FFE8C8,#90BE6D)">🌟</div>
+        <img src="images/gallery9.jpg" alt="Every child deserves a story" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
         <div class="gallery-overlay"><span>🔍</span></div>
       </div>
     </div>
@@ -412,49 +531,44 @@
 <!-- ══════════════════ BLOG ══════════════════ -->
 <section id="blog" class="section">
   <div class="container">
-    <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:40px;">
+    <div class="blog-header reveal">
       <div>
         <span class="section-tag">News &amp; Updates</span>
         <h2 class="section-title" style="margin-bottom:0">From Our Little Library</h2>
       </div>
-      <a href="blog.html" class="btn btn-outline">View All Posts</a>
+      <a href="blog.html" class="btn btn-outline-navy">View All Posts</a>
     </div>
-    <div class="blog-grid" id="blog-grid">
-      <!-- Populated by fetchBlogPosts() below -->
-    </div>
+    <div class="blog-grid" id="blog-grid"></div>
   </div>
 </section>
 
 <!-- ══════════════════ DONATE ══════════════════ -->
-<section id="donate" class="section alt-bg">
+<section id="donate" class="section" style="background:var(--off-white)">
   <div class="container">
     <div class="donate-hero reveal">
       <h2>Your Gift Opens a World of Stories</h2>
       <p>Every dollar helps us put books in little hands, art supplies in young fingers, and music in every heart. 100% of donations go directly to our programs.</p>
-      <!-- PayPal Donate Button — replace hosted_button_id with your own from PayPal -->
       <div class="paypal-donate-wrap">
         <form action="https://www.paypal.com/donate" method="post" target="_blank">
           <input type="hidden" name="business" value="Mkvglow@gmail.com" />
           <input type="hidden" name="no_recurring" value="0" />
           <input type="hidden" name="item_name" value="Marie's Little Library — Donation" />
           <input type="hidden" name="currency_code" value="USD" />
-          <input type="hidden" name="return" value="" />
-          <input type="submit" value="💛 Donate via PayPal" />
+          <input type="submit" value="Donate via PayPal ♥" />
         </form>
       </div>
     </div>
 
-    <div class="reveal" style="text-align:left;margin-bottom:32px;">
+    <div class="reveal" style="text-align:center;margin-bottom:40px;">
       <span class="section-tag">Sponsorship Tiers</span>
       <h2 class="section-title">Choose Your Impact</h2>
-      <p class="section-sub">Become a sponsor and directly fund books, art supplies, or student scholarships for a child in need.</p>
+      <p class="section-sub" style="margin:0 auto;">Become a sponsor and directly fund books, art supplies, or student scholarships for a child in need.</p>
     </div>
 
     <div class="sponsor-tiers">
-      <!-- Book Sponsor -->
       <div class="tier-card books reveal">
         <div class="tier-amount">$25</div>
-        <h3>📚 Book Sponsor</h3>
+        <h3>Book Sponsor</h3>
         <ul>
           <li>Sponsors 3–5 children's books</li>
           <li>Books donated to local families</li>
@@ -466,14 +580,12 @@
           <input type="hidden" name="amount" value="25" />
           <input type="hidden" name="item_name" value="Book Sponsor — Marie's Little Library" />
           <input type="hidden" name="currency_code" value="USD" />
-          <input type="submit" class="btn btn-yellow" style="width:100%;border:none;cursor:pointer;font-family:var(--ff-body);font-weight:700;font-size:.95rem;" value="Sponsor Books →" />
+          <input type="submit" class="btn btn-teal" style="width:100%;border:none;cursor:pointer;font-family:var(--ff-body);font-weight:800;font-size:.83rem;letter-spacing:.07em;text-transform:uppercase;" value="Sponsor Books" />
         </form>
       </div>
-
-      <!-- Arts Sponsor -->
       <div class="tier-card arts reveal">
         <div class="tier-amount">$50</div>
-        <h3>🎨 Arts Sponsor</h3>
+        <h3>Arts Sponsor</h3>
         <ul>
           <li>Funds a full art kit for 1 child</li>
           <li>Paints, brushes, canvas &amp; more</li>
@@ -485,26 +597,24 @@
           <input type="hidden" name="amount" value="50" />
           <input type="hidden" name="item_name" value="Arts Sponsor — Marie's Little Library" />
           <input type="hidden" name="currency_code" value="USD" />
-          <input type="submit" class="btn btn-primary" style="width:100%;border:none;cursor:pointer;font-family:var(--ff-body);font-weight:700;font-size:.95rem;" value="Sponsor Arts →" />
+          <input type="submit" class="btn btn-gold" style="width:100%;border:none;cursor:pointer;font-family:var(--ff-body);font-weight:800;font-size:.83rem;letter-spacing:.07em;text-transform:uppercase;" value="Sponsor Arts" />
         </form>
       </div>
-
-      <!-- Scholarship -->
       <div class="tier-card scholar reveal">
         <div class="tier-amount">$100</div>
-        <h3>🌟 Scholarship Sponsor</h3>
+        <h3>Scholarship Sponsor</h3>
         <ul>
           <li>Funds a student scholarship</li>
           <li>Covers books + supplies for a year</li>
           <li>Personalized impact report</li>
-          <li>Featured on our website &amp; socials</li>
+          <li>Featured on website &amp; socials</li>
         </ul>
         <form action="https://www.paypal.com/donate" method="post" target="_blank">
           <input type="hidden" name="business" value="Mkvglow@gmail.com" />
           <input type="hidden" name="amount" value="100" />
           <input type="hidden" name="item_name" value="Scholarship Sponsor — Marie's Little Library" />
           <input type="hidden" name="currency_code" value="USD" />
-          <input type="submit" class="btn btn-outline" style="width:100%;cursor:pointer;font-family:var(--ff-body);font-weight:700;font-size:.95rem;" value="Give Scholarship →" />
+          <input type="submit" class="btn btn-navy" style="width:100%;border:none;cursor:pointer;font-family:var(--ff-body);font-weight:800;font-size:.83rem;letter-spacing:.07em;text-transform:uppercase;" value="Give Scholarship" />
         </form>
       </div>
     </div>
@@ -514,16 +624,14 @@
 <!-- ══════════════════ SHOP ══════════════════ -->
 <section id="shop" class="section">
   <div class="container">
-    <div class="reveal">
+    <div class="reveal" style="text-align:center;margin-bottom:48px;">
       <span class="section-tag">Shop</span>
       <h2 class="section-title">Support &amp; Shop Good</h2>
-      <p class="section-sub">Every purchase supports our programs. Shipping available across the US.</p>
+      <p class="section-sub" style="margin:0 auto;">Every purchase supports our programs. Shipping available across the US.</p>
     </div>
     <div class="shop-grid">
-
-      <!-- Product 1 -->
       <div class="card product-card reveal">
-        <div class="ph ph-product" style="background:linear-gradient(135deg,#FFE8C8,#F9C74F);font-size:3.5rem;display:flex;align-items:center;justify-content:center;">📚</div>
+        <img src="images/shop1.jpg" alt="Little Reader Bundle" style="width:100%;height:200px;object-fit:cover;display:block;" />
         <div class="product-body">
           <h3>Little Reader Bundle</h3>
           <p>A curated set of 5 diverse children's books for ages 3–8. Handpicked with love.</p>
@@ -536,17 +644,15 @@
             <input type="hidden" name="amount" value="28.00" />
             <input type="hidden" name="currency_code" value="USD" />
             <input type="hidden" name="shipping" value="4.00" />
-            <input type="submit" value="🛒 Add to Cart" />
+            <input type="submit" value="Add to Cart" />
           </form>
         </div>
       </div>
-
-      <!-- Product 2 -->
       <div class="card product-card reveal">
-        <div class="ph ph-product" style="background:linear-gradient(135deg,#FCE4EC,#F4845F);font-size:3.5rem;display:flex;align-items:center;justify-content:center;">🎨</div>
+        <img src="images/shop2.jpg" alt="Mini Artist Kit" style="width:100%;height:200px;object-fit:cover;display:block;" />
         <div class="product-body">
           <h3>Mini Artist Kit</h3>
-          <p>Watercolors, brushes, a sketchpad, and crayons — everything a young artist needs to get started.</p>
+          <p>Watercolors, brushes, a sketchpad, and crayons — everything a young artist needs.</p>
           <div class="product-price">$22.00</div>
           <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
             <input type="hidden" name="cmd" value="_cart" />
@@ -556,17 +662,15 @@
             <input type="hidden" name="amount" value="22.00" />
             <input type="hidden" name="currency_code" value="USD" />
             <input type="hidden" name="shipping" value="4.00" />
-            <input type="submit" value="🛒 Add to Cart" />
+            <input type="submit" value="Add to Cart" />
           </form>
         </div>
       </div>
-
-      <!-- Product 3 -->
       <div class="card product-card reveal">
-        <div class="ph ph-product" style="background:linear-gradient(135deg,#E8F5E9,#90BE6D);font-size:3.5rem;display:flex;align-items:center;justify-content:center;">🌟</div>
+        <img src="images/shop3.jpg" alt="Joy Bundle" style="width:100%;height:200px;object-fit:cover;display:block;" />
         <div class="product-body">
           <h3>Joy Bundle</h3>
-          <p>Our most popular set — 3 books + art kit + a hand-written note of encouragement for one lucky child.</p>
+          <p>3 books + art kit + a hand-written note of encouragement for one lucky child.</p>
           <div class="product-price">$45.00</div>
           <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
             <input type="hidden" name="cmd" value="_cart" />
@@ -576,36 +680,33 @@
             <input type="hidden" name="amount" value="45.00" />
             <input type="hidden" name="currency_code" value="USD" />
             <input type="hidden" name="shipping" value="5.00" />
-            <input type="submit" value="🛒 Add to Cart" />
+            <input type="submit" value="Add to Cart" />
           </form>
         </div>
       </div>
-
-      <!-- Product 4 -->
       <div class="card product-card reveal">
-        <div class="ph ph-product" style="background:linear-gradient(135deg,#FFF3CD,#F9C74F);font-size:3.5rem;display:flex;align-items:center;justify-content:center;">💛</div>
+        <img src="images/donation.jpg" alt="Gift a Donation" style="width:100%;height:200px;object-fit:cover;display:block;" />
         <div class="product-body">
           <h3>Gift a Donation</h3>
-          <p>Give in someone's name! We'll send a beautiful digital card and put the gift toward our scholarship fund.</p>
+          <p>Give in someone's name! We'll send a digital card and put the gift toward our scholarship fund.</p>
           <div class="product-price">Any Amount</div>
           <form action="https://www.paypal.com/donate" method="post" target="_blank">
             <input type="hidden" name="business" value="Mkvglow@gmail.com" />
             <input type="hidden" name="item_name" value="Gift Donation — Marie's Little Library" />
             <input type="hidden" name="currency_code" value="USD" />
-            <input type="submit" value="💛 Gift a Donation" />
+            <input type="submit" value="Gift a Donation" />
           </form>
         </div>
       </div>
-
     </div>
     <p class="shop-note">All orders processed securely via PayPal. Questions? <a href="#contact">Contact us</a>.</p>
   </div>
 </section>
 
 <!-- ══════════════════ CONTACT ══════════════════ -->
-<section id="contact" class="section alt-bg">
+<section id="contact" class="section" style="background:var(--off-white)">
   <div class="container">
-    <div class="reveal">
+    <div class="reveal" style="text-align:center;margin-bottom:48px;">
       <span class="section-tag">Get In Touch</span>
       <h2 class="section-title">We'd Love to Hear From You</h2>
     </div>
@@ -636,10 +737,9 @@
             <label for="message">Message</label>
             <textarea id="message" name="message" placeholder="Tell us how you'd like to get involved or what you need…" required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Send Message ✉️</button>
+          <button type="submit" class="btn btn-teal">Send Message</button>
         </form>
       </div>
-
       <div class="contact-info reveal">
         <h3>Connect With Us</h3>
         <p>Whether you want to donate books, volunteer, partner with us, or just say hello — we're always happy to connect with our community!</p>
@@ -649,14 +749,12 @@
         </div>
         <div class="contact-detail">
           <div class="icon icon-email">✉️</div>
-          <div><strong>Email</strong><br /><a href="mailto:Mkvglow@gmail.com" style="color:var(--coral);font-weight:700;">Mkvglow@gmail.com</a></div>
+          <div><strong>Email</strong><br /><a href="mailto:Mkvglow@gmail.com" style="color:var(--teal);font-weight:700;">Mkvglow@gmail.com</a></div>
         </div>
         <div class="contact-detail">
           <div class="icon icon-map">📍</div>
-          <div><strong>Service Area</strong><br />San Francisco Bay Area, CA<br /><em style="font-size:.85rem;color:var(--brown-light)">(Exact address provided upon appointment)</em></div>
+          <div><strong>Service Area</strong><br />San Francisco Bay Area, CA<br /><em style="font-size:.85rem;color:var(--text-mid)">(Exact address provided upon appointment)</em></div>
         </div>
-
-        <!-- Google Maps embed — Bay Area placeholder until client provides address -->
         <div class="map-wrap">
           <iframe
             src="https://maps.google.com/maps?q=San+Francisco+Bay+Area,+CA&t=&z=10&ie=UTF8&iwloc=&output=embed"
@@ -670,12 +768,21 @@
   </div>
 </section>
 
+<!-- ══════════════════ NEWSLETTER STRIP ══════════════════ -->
+<div class="newsletter-strip">
+  <div class="container newsletter-inner">
+    <h2>Stay Connected</h2>
+    <p>Events, book drives, and impact stories — straight to your inbox.</p>
+    <a href="#contact" class="btn btn-gold">Get In Touch</a>
+  </div>
+</div>
+
 <!-- ══════════════════ FOOTER ══════════════════ -->
 <footer id="footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="nav-logo">Marie's Little Library</div>
+        <div class="footer-logo"><img src="images/logo.jpg" alt="Marie's Little Library" /></div>
         <p>A non-profit sharing the joy of children's books, arts, and music with kids in humble communities since 2020. Every child deserves a story.</p>
         <div class="socials">
           <a href="#" class="social-btn" aria-label="Facebook">📘</a>
@@ -706,12 +813,11 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 Marie's Little Library. Non-profit organization. All rights reserved.</span>
-      <span>Made with ♥ by <a href="#" style="color:rgba(255,248,240,.8)">Monty's Media</a></span>
+      <span>Made with ♥ by <a href="#" style="color:rgba(255,255,255,.7)">Monty's Media</a></span>
     </div>
   </div>
 </footer>
 
-<!-- Back to top -->
 <button id="back-top" aria-label="Back to top">↑</button>
 
 <!-- ══════════════════ JAVASCRIPT ══════════════════ -->
@@ -744,9 +850,7 @@
 
   /* ── BACK TO TOP ── */
   const backTop = document.getElementById('back-top');
-  window.addEventListener('scroll', () => {
-    backTop.classList.toggle('show', window.scrollY > 400);
-  });
+  window.addEventListener('scroll', () => { backTop.classList.toggle('show', window.scrollY > 400); });
   backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
   /* ── LIGHTBOX ── */
@@ -759,38 +863,58 @@
   const lbNext   = document.getElementById('lb-next');
 
   const captions = [
-    'Book distribution day — smiles all around! 📚',
-    'Art workshop in full color — every child an artist! 🎨',
-    'Music brings us all together 🎵',
-    'Community gathering — little hands, big dreams 🌸',
-    'Reading time is the best time 👦',
-    'A new story for every child 📖',
-    'Crayons and creativity at the Saturday workshop 🖍️',
-    'Sing-along at our community music day 🎶',
-    'Every child deserves a world of stories 🌟'
+    'Book distribution day — smiles all around!',
+    'Art workshop in full color — every child an artist!',
+    'Music brings us all together',
+    'Community gathering — little hands, big dreams',
+    'Reading time is the best time',
+    'A new story for every child',
+    'Crayons and creativity at the Saturday workshop',
+    'Sing-along at our community music day',
+    'Every child deserves a world of stories'
+  ];
+
+  const galleryImages = [
+    'images/gallery1.jpg',
+    'images/gallery2.jpg',
+    'images/gallery3.jpg',
+    'images/gallery4.jpg',
+    'images/gallery5.jpg',
+    'images/gallery6.jpg',
+    'images/gallery7.jpg',
+    'images/gallery8.jpg',
+    'images/gallery9.jpg'
   ];
 
   const gradients = [
-    'linear-gradient(135deg,#FFE8C8,#F4845F)',
-    'linear-gradient(135deg,#FCE4EC,#F9C74F)',
-    'linear-gradient(135deg,#E8F5E9,#90BE6D)',
-    'linear-gradient(135deg,#FFF3CD,#F4845F)',
-    'linear-gradient(135deg,#E8F5E9,#F9C74F)',
-    'linear-gradient(135deg,#FCE4EC,#90BE6D)',
-    'linear-gradient(135deg,#FFF3CD,#FCE4EC)',
-    'linear-gradient(135deg,#E8F5E9,#F4845F)',
-    'linear-gradient(135deg,#FFE8C8,#90BE6D)'
+    'linear-gradient(135deg,#3DBDB1,#1E3A6E)',
+    'linear-gradient(135deg,#2D5087,#3DBDB1)',
+    'linear-gradient(135deg,#E8A020,#3DBDB1)',
+    'linear-gradient(135deg,#1E3A6E,#C8EBE9)',
+    'linear-gradient(135deg,#3DBDB1,#E8A020)',
+    'linear-gradient(135deg,#2D5087,#E8A020)',
+    'linear-gradient(135deg,#1E3A6E,#3DBDB1)',
+    'linear-gradient(135deg,#E8A020,#1E3A6E)',
+    'linear-gradient(135deg,#C8EBE9,#2D5087)'
   ];
 
-  const emojis = ['📚','🎨','🎵','🌸','👦','📖','🖍️','🎶','🌟'];
-
+  const emojis = ['📚','🎨','🎵','🌸','👧','📖','🖍️','🎶','🌟'];
   let currentIdx = 0;
 
   function openLightbox(idx) {
     currentIdx = idx;
-    lbImg.style.background = gradients[idx];
-    lbImg.textContent = emojis[idx];
-    lbImg.style.fontSize = '7rem';
+    const src = galleryImages[idx];
+    if (src) {
+      lbImg.innerHTML = `<img src="${src}" alt="${captions[idx]}" style="width:100%;height:auto;border-radius:16px;display:block;" />`;
+      lbImg.style.background = '';
+      lbImg.style.fontSize = '';
+      lbImg.style.minHeight = '';
+    } else {
+      lbImg.innerHTML = emojis[idx];
+      lbImg.style.background = gradients[idx];
+      lbImg.style.fontSize = '7rem';
+      lbImg.style.minHeight = '340px';
+    }
     lbCap.textContent = captions[idx];
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -809,10 +933,8 @@
 
   lbClose.addEventListener('click', closeLightbox);
   lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-
   lbPrev.addEventListener('click', () => openLightbox((currentIdx - 1 + galleryItems.length) % galleryItems.length));
   lbNext.addEventListener('click', () => openLightbox((currentIdx + 1) % galleryItems.length));
-
   document.addEventListener('keydown', (e) => {
     if (!lightbox.classList.contains('active')) return;
     if (e.key === 'Escape') closeLightbox();
@@ -822,25 +944,19 @@
 
 })();
 
-/* ── GOOGLE SHEETS BLOG FEED ────────────────────────────────────
-   1. Open your Google Sheet
-   2. File → Share → Publish to web → Sheet1 → CSV → Publish
-   3. Copy the Sheet ID from the URL:
-      docs.google.com/spreadsheets/d/[SHEET_ID]/edit
-   4. Paste it below replacing YOUR_GOOGLE_SHEET_ID_HERE
-─────────────────────────────────────────────────────────────── */
+/* ── GOOGLE SHEETS BLOG FEED ── */
 const SHEET_ID = '13Ncs-PLCjw4-zJvOT0O4JdtejPdrlCFYclBvOT3DBGw';
 
 const FALLBACK_POSTS = [
-  { id:'1', title:'Spring Book Drive: 300 Books Find New Homes!', date:'2026-05-03', category:'Book Drive', excerpt:'Our biggest book drive yet brought together 60 families from the community. Every child went home with a brand-new story to call their own.', emoji:'📚', gradient:'linear-gradient(135deg,#FFE8C8,#F4845F)', published:'true' },
-  { id:'2', title:'Painting Smiles: Our First Art Workshop of the Year', date:'2026-04-14', category:'Arts Workshop', excerpt:'30 young artists explored watercolors, collage, and their own creativity at our free Saturday workshop. The results were absolutely stunning.', emoji:'🎨', gradient:'linear-gradient(135deg,#FCE4EC,#F9C74F)', published:'true' },
-  { id:'3', title:'Music in the Park: A Day of Songs & Smiles', date:'2026-03-21', category:'Community Event', excerpt:'Families gathered under the trees for an afternoon of music, laughter, and community. Music truly brings us all together — and our kids proved it!', emoji:'🎵', gradient:'linear-gradient(135deg,#E8F5E9,#90BE6D)', published:'true' }
+  { id:'1', title:'Spring Book Drive: 300 Books Find New Homes!', date:'2026-05-03', category:'Book Drive', excerpt:'Our biggest book drive yet brought together 60 families from the community. Every child went home with a brand-new story to call their own.', emoji:'📚', gradient:'linear-gradient(135deg,#3DBDB1,#1E3A6E)', published:'true' },
+  { id:'2', title:'Painting Smiles: Our First Art Workshop of the Year', date:'2026-04-14', category:'Arts Workshop', excerpt:'30 young artists explored watercolors, collage, and their own creativity at our free Saturday workshop. The results were absolutely stunning.', emoji:'🎨', gradient:'linear-gradient(135deg,#2D5087,#3DBDB1)', published:'true' },
+  { id:'3', title:'Music in the Park: A Day of Songs & Smiles', date:'2026-03-21', category:'Community Event', excerpt:'Families gathered under the trees for an afternoon of music, laughter, and community. Music truly brings us all together — and our kids proved it!', emoji:'🎵', gradient:'linear-gradient(135deg,#E8A020,#3DBDB1)', published:'true' }
 ];
 
 async function fetchBlogPosts() {
   if (SHEET_ID === 'YOUR_GOOGLE_SHEET_ID_HERE') return FALLBACK_POSTS;
   try {
-    const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&headers=1`;
+    const url  = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&headers=1`;
     const res  = await fetch(url);
     const text = await res.text();
     const json = JSON.parse(text.replace(/^[^(]+\(/, '').replace(/\);\s*$/, ''));
@@ -852,13 +968,13 @@ async function fetchBlogPosts() {
   } catch (e) { return FALLBACK_POSTS; }
 }
 
-function postThumb(post, height='180px') {
+function postThumb(post, height='190px') {
   const photo = post.image_url && post.image_url.trim();
   if (photo) {
     const img = new Image();
     img.onerror = () => {
       document.querySelectorAll(`[data-post-thumb="${post.id}"]`).forEach(el => {
-        el.style.background = post.gradient || 'linear-gradient(135deg,#FFE8C8,#F4845F)';
+        el.style.background = post.gradient || 'linear-gradient(135deg,#3DBDB1,#1E3A6E)';
         el.style.display = 'flex'; el.style.alignItems = 'center';
         el.style.justifyContent = 'center'; el.style.fontSize = '3rem';
         el.innerHTML = post.emoji || '📖';
@@ -867,11 +983,11 @@ function postThumb(post, height='180px') {
     img.src = photo;
     return `style="background:url('${photo}') center/cover no-repeat;height:${height}" data-post-thumb="${post.id}"`;
   }
-  return `style="background:${post.gradient||'linear-gradient(135deg,#FFE8C8,#F4845F)'};height:${height};font-size:3rem;display:flex;align-items:center;justify-content:center" data-post-thumb="${post.id}"`;
+  return `style="background:${post.gradient||'linear-gradient(135deg,#3DBDB1,#1E3A6E)'};height:${height};font-size:3rem;display:flex;align-items:center;justify-content:center" data-post-thumb="${post.id}"`;
 }
 
 function blogCard(post) {
-  const fmt  = d => { try { return new Date(d).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'}); } catch { return d; } };
+  const fmt = d => { try { return new Date(d).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'}); } catch { return d; } };
   const photo = post.image_url && post.image_url.trim();
   return `<article class="card blog-card reveal">
     <div class="ph ph-blog" ${postThumb(post)}>${photo ? '' : (post.emoji||'📖')}</div>
@@ -879,7 +995,7 @@ function blogCard(post) {
       <p class="blog-meta">${fmt(post.date)} · ${post.category||''}</p>
       <h3>${post.title}</h3>
       <p>${post.excerpt}</p>
-      <a href="blog-post.html?id=${encodeURIComponent(post.id)}" class="btn btn-outline">Read More →</a>
+      <a href="blog-post.html?id=${encodeURIComponent(post.id)}" class="btn btn-outline-teal">Read More</a>
     </div>
   </article>`;
 }
@@ -887,9 +1003,7 @@ function blogCard(post) {
 fetchBlogPosts().then(posts => {
   const grid = document.getElementById('blog-grid');
   if (!grid) return;
-  const recent = posts.slice(0, 3);
-  grid.innerHTML = recent.map(blogCard).join('');
-  // re-observe new cards for scroll reveal
+  grid.innerHTML = posts.slice(0,3).map(blogCard).join('');
   grid.querySelectorAll('.reveal').forEach(el => {
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });

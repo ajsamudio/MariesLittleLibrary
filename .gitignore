@@ -9,3 +9,6 @@ Thumbs.db
 
 # Vercel
 .vercel
+
+# IDE/Tooling
+.claude
