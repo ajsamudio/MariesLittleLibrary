@@ -7,7 +7,7 @@
   <meta name="description" content="Marie's Little Library is a non-profit sharing the joy of children's books, arts, and music with kids in humble communities since 2020." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700;800;900&display=swap" rel="stylesheet" />
   <style>
     /* ── RESET & TOKENS ─────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -25,7 +25,6 @@
       --text-mid:    #4A6B8A;
       --shadow:      0 4px 24px rgba(30,58,110,.13);
       --radius:      14px;
-      --ff-head:     'Pacifico', cursive;
       --ff-body:     'Nunito', sans-serif;
       --transition:  .25s ease;
     }
@@ -60,13 +59,9 @@
     /* ── CARD ───────────────────────────────────────────────────── */
     .card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
 
-    /* ── PLACEHOLDER BLOCKS ─────────────────────────────────────── */
+    /* ── PLACEHOLDER (blog thumb fallback) ──────────────────────── */
     .ph         { display: flex; align-items: center; justify-content: center; font-size: 3rem; border-radius: var(--radius); }
-    .ph-about   { background: var(--teal-light); min-height: 380px; }
-    .ph-gallery { background: var(--teal-light); aspect-ratio: 1; cursor: pointer; transition: transform var(--transition), box-shadow var(--transition); }
-    .ph-gallery:hover { transform: scale(1.03); box-shadow: 0 8px 28px rgba(30,58,110,.2); }
     .ph-blog    { background: var(--teal-light); height: 190px; }
-    .ph-product { background: var(--teal-light); height: 200px; }
 
     /* ── ANNOUNCE BAR ───────────────────────────────────────────── */
     #announce-bar { background: #FDE8C8; text-align: center; padding: 10px 20px; font-size: .88rem; font-weight: 700; color: var(--navy); }
@@ -128,7 +123,8 @@
       50%       { translate: 0 -18px; rotate: -1.5deg; }
     }
     .hero-photos { display: flex; justify-content: center; align-items: flex-end; gap: 16px; padding-bottom: 12px; }
-    .hero-photo-card { border-radius: 18px; overflow: hidden; box-shadow: 0 12px 40px rgba(30,58,110,.28); display: flex; align-items: center; justify-content: center; font-size: 4rem; will-change: translate, rotate, scale; transition: scale .3s ease, box-shadow .3s ease; cursor: pointer; }
+    .hero-photo-card { border-radius: 18px; overflow: hidden; box-shadow: 0 12px 40px rgba(30,58,110,.28); display: flex; align-items: center; justify-content: center; will-change: translate, rotate, scale; transition: scale .3s ease, box-shadow .3s ease; cursor: pointer; }
+    .hero-photo-card img { width: 100%; height: 100%; object-fit: cover; }
     .hero-photo-card:hover { scale: 1.07; box-shadow: 0 28px 64px rgba(30,58,110,.52); }
     .hero-photo-card.tall  { width: 155px; height: 220px; animation: float-tall  4.4s ease-in-out infinite; }
     .hero-photo-card.mid   { width: 145px; height: 200px; margin-bottom: 28px; animation: float-mid   3.7s ease-in-out infinite; animation-delay: -1.5s; }
@@ -150,7 +146,7 @@
     .about-grid { display: grid; grid-template-columns: 1fr; gap: 56px; align-items: center; }
     @media(min-width:768px){ .about-grid { grid-template-columns: 1fr 1fr; } }
     .about-img-wrap { position: relative; }
-    .about-img-wrap .ph-about { border-radius: 20px; }
+    .about-img-wrap > img { width: 100%; min-height: 380px; object-fit: cover; border-radius: 20px; display: block; }
     .about-accent { position: absolute; border-radius: 50%; }
     .about-accent.tl { width: 120px; height: 120px; top: -24px; left: -24px; background: var(--teal); opacity: .15; }
     .about-accent.br { width: 90px; height: 90px; bottom: -18px; right: -18px; background: var(--gold); opacity: .18; }
@@ -183,8 +179,7 @@
     .gallery-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
     @media(min-width:600px){ .gallery-grid { grid-template-columns: repeat(3,1fr); } }
     .gallery-item { position: relative; border-radius: 14px; overflow: hidden; cursor: pointer; }
-    .gallery-item .ph-gallery { border-radius: 0; width: 100%; }
-    .gallery-item img { transition: transform .45s ease; display: block; }
+    .gallery-item img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; transition: transform .45s ease; }
     .gallery-item:hover img { transform: scale(1.08); }
     .gallery-overlay { position: absolute; inset: 0; background: rgba(30,58,110,0); display: flex; align-items: center; justify-content: center; transition: var(--transition); }
     .gallery-item:hover .gallery-overlay { background: rgba(30,58,110,.45); }
@@ -195,7 +190,7 @@
     #lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(15,30,60,.93); align-items: center; justify-content: center; padding: 20px; }
     #lightbox.active { display: flex; }
     .lb-inner { position: relative; max-width: 720px; width: 100%; }
-    .lb-img   { width: 100%; border-radius: 20px; min-height: 340px; display: flex; align-items: center; justify-content: center; font-size: 6rem; }
+    .lb-img   { width: 100%; border-radius: 20px; }
     .lb-close { position: absolute; top: -14px; right: -14px; background: var(--gold); color: var(--white); border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
     .lb-nav   { display: flex; justify-content: space-between; margin-top: 14px; }
     .lb-nav button { background: rgba(255,255,255,.15); border: none; color: var(--white); font-size: 1.6rem; padding: 8px 18px; border-radius: 8px; cursor: pointer; transition: var(--transition); }
@@ -240,7 +235,7 @@
     .shop-grid { display: grid; grid-template-columns: 1fr; gap: 28px; }
     @media(min-width:600px){ .shop-grid { grid-template-columns: repeat(2,1fr); } }
     @media(min-width:900px){ .shop-grid { grid-template-columns: repeat(4,1fr); } }
-    .product-card .ph-product { border-radius: var(--radius) var(--radius) 0 0; }
+    .product-card > img { width: 100%; height: 200px; object-fit: cover; display: block; border-radius: var(--radius) var(--radius) 0 0; }
     .product-body { padding: 20px; }
     .product-body h3 { font-weight: 800; font-size: 1rem; margin-bottom: 6px; color: var(--navy); }
     .product-body p  { font-size: .88rem; color: var(--text-mid); margin-bottom: 12px; }
@@ -314,7 +309,7 @@
 <nav id="navbar">
   <div class="container nav-inner">
     <a href="#hero" class="nav-logo">
-      <img src="images/logo.jpg" alt="Marie's Little Library" />
+      <img src="images/logo.jpg" alt="Marie's Little Library" decoding="async" />
     </a>
     <button class="hamburger" id="ham" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -351,9 +346,9 @@
         </div>
       </div>
       <div class="hero-photos reveal">
-        <div class="hero-photo-card tall"><img src="images/card1.jpg" alt="Child reading a book" style="width:100%;height:100%;object-fit:cover;" /></div>
-        <div class="hero-photo-card mid"><img src="images/card2.jpg" alt="Child doing art" style="width:100%;height:100%;object-fit:cover;" /></div>
-        <div class="hero-photo-card short"><img src="images/card3.jpg" alt="Child singing" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div class="hero-photo-card tall"><img src="images/card1.jpg" alt="Child reading a book" decoding="async" fetchpriority="high" /></div>
+        <div class="hero-photo-card mid"><img src="images/card2.jpg" alt="Child doing art" decoding="async" fetchpriority="high" /></div>
+        <div class="hero-photo-card short"><img src="images/card3.jpg" alt="Child singing" decoding="async" fetchpriority="high" /></div>
       </div>
     </div>
   </div>
@@ -374,7 +369,7 @@
       <div class="about-img-wrap reveal">
         <div class="about-accent tl"></div>
         <div class="about-accent br"></div>
-        <img src="images/about.jpg" alt="Marie reading to children in a park" style="width:100%;min-height:380px;object-fit:cover;border-radius:20px;display:block;" />
+        <img src="images/about.jpg" alt="Marie reading to children in a park" loading="lazy" decoding="async" />
       </div>
       <div class="about-body reveal">
         <span class="section-tag">About Us</span>
@@ -476,39 +471,39 @@
     </div>
     <div class="gallery-grid">
       <div class="gallery-item reveal" data-index="0" tabindex="0" role="button" aria-label="Open image 1">
-        <img src="images/gallery1.jpg" alt="Book distribution day" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+        <img src="images/gallery1.jpg" alt="Book distribution day" loading="lazy" decoding="async" />
         <div class="gallery-overlay"><span>🔍</span></div>
       </div>
       <div class="gallery-item reveal" data-index="1" tabindex="0" role="button" aria-label="Open image 2">
-        <img src="images/gallery2.jpg" alt="Art workshop" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+        <img src="images/gallery2.jpg" alt="Art workshop" loading="lazy" decoding="async" />
         <div class="gallery-overlay"><span>🔍</span></div>
       </div>
       <div class="gallery-item reveal" data-index="2" tabindex="0" role="button" aria-label="Open image 3">
-        <img src="images/gallery3.jpg" alt="Music event" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+        <img src="images/gallery3.jpg" alt="Music event" loading="lazy" decoding="async" />
         <div class="gallery-overlay"><span>🔍</span></div>
       </div>
       <div class="gallery-item reveal" data-index="3" tabindex="0" role="button" aria-label="Open image 4">
-        <img src="images/gallery4.jpg" alt="Community gathering" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+        <img src="images/gallery4.jpg" alt="Community gathering" loading="lazy" decoding="async" />
         <div class="gallery-overlay"><span>🔍</span></div>
       </div>
       <div class="gallery-item reveal" data-index="4" tabindex="0" role="button" aria-label="Open image 5">
-        <img src="images/gallery5.jpg" alt="Reading time is the best time" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+        <img src="images/gallery5.jpg" alt="Reading time is the best time" loading="lazy" decoding="async" />
         <div class="gallery-overlay"><span>🔍</span></div>
       </div>
       <div class="gallery-item reveal" data-index="5" tabindex="0" role="button" aria-label="Open image 6">
-        <img src="images/gallery6.jpg" alt="A new story for every child" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+        <img src="images/gallery6.jpg" alt="A new story for every child" loading="lazy" decoding="async" />
         <div class="gallery-overlay"><span>🔍</span></div>
       </div>
       <div class="gallery-item reveal" data-index="6" tabindex="0" role="button" aria-label="Open image 7">
-        <img src="images/gallery7.jpg" alt="Saturday art workshop" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+        <img src="images/gallery7.jpg" alt="Saturday art workshop" loading="lazy" decoding="async" />
         <div class="gallery-overlay"><span>🔍</span></div>
       </div>
       <div class="gallery-item reveal" data-index="7" tabindex="0" role="button" aria-label="Open image 8">
-        <img src="images/gallery8.jpg" alt="Community sing-along" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+        <img src="images/gallery8.jpg" alt="Community sing-along" loading="lazy" decoding="async" />
         <div class="gallery-overlay"><span>🔍</span></div>
       </div>
       <div class="gallery-item reveal" data-index="8" tabindex="0" role="button" aria-label="Open image 9">
-        <img src="images/gallery9.jpg" alt="Every child deserves a story" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+        <img src="images/gallery9.jpg" alt="Every child deserves a story" loading="lazy" decoding="async" />
         <div class="gallery-overlay"><span>🔍</span></div>
       </div>
     </div>
@@ -631,7 +626,7 @@
     </div>
     <div class="shop-grid">
       <div class="card product-card reveal">
-        <img src="images/shop1.jpg" alt="Little Reader Bundle" style="width:100%;height:200px;object-fit:cover;display:block;" />
+        <img src="images/shop1.jpg" alt="Little Reader Bundle" loading="lazy" decoding="async" />
         <div class="product-body">
           <h3>Little Reader Bundle</h3>
           <p>A curated set of 5 diverse children's books for ages 3–8. Handpicked with love.</p>
@@ -649,7 +644,7 @@
         </div>
       </div>
       <div class="card product-card reveal">
-        <img src="images/shop2.jpg" alt="Mini Artist Kit" style="width:100%;height:200px;object-fit:cover;display:block;" />
+        <img src="images/shop2.jpg" alt="Mini Artist Kit" loading="lazy" decoding="async" />
         <div class="product-body">
           <h3>Mini Artist Kit</h3>
           <p>Watercolors, brushes, a sketchpad, and crayons — everything a young artist needs.</p>
@@ -667,7 +662,7 @@
         </div>
       </div>
       <div class="card product-card reveal">
-        <img src="images/shop3.jpg" alt="Joy Bundle" style="width:100%;height:200px;object-fit:cover;display:block;" />
+        <img src="images/shop3.jpg" alt="Joy Bundle" loading="lazy" decoding="async" />
         <div class="product-body">
           <h3>Joy Bundle</h3>
           <p>3 books + art kit + a hand-written note of encouragement for one lucky child.</p>
@@ -685,7 +680,7 @@
         </div>
       </div>
       <div class="card product-card reveal">
-        <img src="images/donation.jpg" alt="Gift a Donation" style="width:100%;height:200px;object-fit:cover;display:block;" />
+        <img src="images/donation.jpg" alt="Gift a Donation" loading="lazy" decoding="async" />
         <div class="product-body">
           <h3>Gift a Donation</h3>
           <p>Give in someone's name! We'll send a digital card and put the gift toward our scholarship fund.</p>
@@ -782,7 +777,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="footer-logo"><img src="images/logo.jpg" alt="Marie's Little Library" /></div>
+        <div class="footer-logo"><img src="images/logo.jpg" alt="Marie's Little Library" loading="lazy" decoding="async" /></div>
         <p>A non-profit sharing the joy of children's books, arts, and music with kids in humble communities since 2020. Every child deserves a story.</p>
         <div class="socials">
           <a href="#" class="social-btn" aria-label="Facebook">📘</a>
@@ -875,46 +870,15 @@
   ];
 
   const galleryImages = [
-    'images/gallery1.jpg',
-    'images/gallery2.jpg',
-    'images/gallery3.jpg',
-    'images/gallery4.jpg',
-    'images/gallery5.jpg',
-    'images/gallery6.jpg',
-    'images/gallery7.jpg',
-    'images/gallery8.jpg',
-    'images/gallery9.jpg'
+    'images/gallery1.jpg','images/gallery2.jpg','images/gallery3.jpg',
+    'images/gallery4.jpg','images/gallery5.jpg','images/gallery6.jpg',
+    'images/gallery7.jpg','images/gallery8.jpg','images/gallery9.jpg'
   ];
-
-  const gradients = [
-    'linear-gradient(135deg,#3DBDB1,#1E3A6E)',
-    'linear-gradient(135deg,#2D5087,#3DBDB1)',
-    'linear-gradient(135deg,#E8A020,#3DBDB1)',
-    'linear-gradient(135deg,#1E3A6E,#C8EBE9)',
-    'linear-gradient(135deg,#3DBDB1,#E8A020)',
-    'linear-gradient(135deg,#2D5087,#E8A020)',
-    'linear-gradient(135deg,#1E3A6E,#3DBDB1)',
-    'linear-gradient(135deg,#E8A020,#1E3A6E)',
-    'linear-gradient(135deg,#C8EBE9,#2D5087)'
-  ];
-
-  const emojis = ['📚','🎨','🎵','🌸','👧','📖','🖍️','🎶','🌟'];
   let currentIdx = 0;
 
   function openLightbox(idx) {
     currentIdx = idx;
-    const src = galleryImages[idx];
-    if (src) {
-      lbImg.innerHTML = `<img src="${src}" alt="${captions[idx]}" style="width:100%;height:auto;border-radius:16px;display:block;" />`;
-      lbImg.style.background = '';
-      lbImg.style.fontSize = '';
-      lbImg.style.minHeight = '';
-    } else {
-      lbImg.innerHTML = emojis[idx];
-      lbImg.style.background = gradients[idx];
-      lbImg.style.fontSize = '7rem';
-      lbImg.style.minHeight = '340px';
-    }
+    lbImg.innerHTML = `<img src="${galleryImages[idx]}" alt="${captions[idx]}" style="width:100%;height:auto;border-radius:16px;display:block;" />`;
     lbCap.textContent = captions[idx];
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
